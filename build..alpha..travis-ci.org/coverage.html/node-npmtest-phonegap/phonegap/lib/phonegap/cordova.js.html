@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-phonegap/phonegap/lib/phonegap/cordova.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-phonegap">npmtest-phonegap (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-phonegap/phonegap/lib/phonegap/cordova.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">11.61% <small>(13 / 112)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 64)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">11.76% <small>(2 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">11.82% <small>(13 / 110)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-phonegap/phonegap/lib/phonegap/</a> &#187; cordova.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*!
+ * Module dependencies.
+ */
+&nbsp;
+var Command = require('./util/command'),
+    cordova = require('../cordova'),
+    fs = require('fs'),
+    path = require('path'),
+    shell = require('shelljs'),
+    util = require('util');
+&nbsp;
+/*!
+ * Command setup.
+ */
+&nbsp;
+module.exports = {
+    create: function(phonegap) {
+        return new CordovaCommand(phonegap);
+    }
+};
+&nbsp;
+function CordovaCommand(phonegap) {
+    return Command.apply(this, arguments);
+}
+&nbsp;
+util.inherits(CordovaCommand, Command);
+&nbsp;
+/**
+ * Execute a Cordova command.
+ *
+ * Execute an arbitrary Cordova CLI command.
+ *
+ * Options:
+ *
+ *   - `options` {Object}
+ *     - `cmd` {String} is the exact Cordova command to execute.
+ *     - `verbose` {Boolean} enables verbose output (cordova output).
+ *   - [`callback`] {Function} is triggered after executing the command.
+ *     - `e` {Error} is null unless there is an error.
+ *
+ * Returns:
+ *
+ *   {PhoneGap} for chaining.
+ */
+&nbsp;
+CordovaCommand.prototype.run = <span class="fstat-no" title="function not covered" >function(options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    var self = this;</span>
+    // require options
+<span class="cstat-no" title="statement not covered" >    if (!options) <span class="cstat-no" title="statement not covered" >throw new Error('requires option parameter');</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!options.cmd) <span class="cstat-no" title="statement not covered" >throw new Error('requires option.cmd parameter');</span></span>
+<span class="cstat-no" title="statement not covered" >    var cordovaCmd = options.cmd.split(" ");</span>
+&nbsp;
+    // append --save by default to phonegap plugin add/remove/rm
+<span class="cstat-no" title="statement not covered" >    var pluginCommands = ["add", "remove", "rm"];</span>
+<span class="cstat-no" title="statement not covered" >    var pluginAlias = ["plugin", "plugins"];</span>
+<span class="cstat-no" title="statement not covered" >    if (pluginAlias.indexOf(cordovaCmd[1]) != -1 &amp;&amp;</span>
+        cordovaCmd.indexOf("--save") == -1 &amp;&amp; cordovaCmd.indexOf("--no-save") == -1 &amp;&amp;
+        pluginCommands.indexOf(cordovaCmd[2]) != -1) {
+<span class="cstat-no" title="statement not covered" >        options.cmd = options.cmd.concat(" --save");</span>
+    }
+    // default options.verbose
+<span class="cstat-no" title="statement not covered" >    if (isCustomCommand(options)) {</span>
+        // these commands can be silenced or verbose
+        // first, do whatever the user specified
+        // if the user didn't specify, then assume silence
+<span class="cstat-no" title="statement not covered" >        options.verbose = options.verbose || false;</span>
+    }
+    else {
+        // all other commands must be verbose, since we don't know what they do
+<span class="cstat-no" title="statement not covered" >        if (options.cmd == 'cordova platform add browser') {</span>
+            // silence output when we auto add browser platform on serve
+<span class="cstat-no" title="statement not covered" >            options.verbose = false;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            options.verbose = true;</span>
+        }
+    }
+&nbsp;
+    // optional callback
+<span class="cstat-no" title="statement not covered" >    callback = callback || <span class="fstat-no" title="function not covered" >function() {</span>};</span>
+&nbsp;
+    // validate options
+<span class="cstat-no" title="statement not covered" >    if (!options.cmd.match(/^cordova/)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('options.cmd must execute cordova');</span>
+    }
+&nbsp;
+    // enable implicit adding of platforms when they're missing
+<span class="cstat-no" title="statement not covered" >    self.addMissingPlatforms(options, <span class="fstat-no" title="function not covered" >function() {</span></span>
+        // inject phonegap.js into the platforms if it's referenced
+<span class="cstat-no" title="statement not covered" >        self.addPhoneGapJSWarning(options, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.execute(options, callback);</span>
+        });
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return this.phonegap;</span>
+};
+&nbsp;
+/*!
+ * Execute.
+ */
+&nbsp;
+CordovaCommand.prototype.execute = <span class="fstat-no" title="function not covered" >function(options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    var self = this;</span>
+&nbsp;
+    // in order to shell out to the cordova dependency, we must first find
+    // where the dependencies binary was installed.
+    //
+    // in npm &lt; 3.x it is found in:
+    //   - `phonegap/node_modules/.bin/cordova`
+    //
+    // in npm &gt;= 3.x it is either flattened or found in a local node_modules:
+    //   - `phonegap/node_modules/.bin/cordova`
+    //   - `/node_modules/.bin/cordova`
+    //     - where phonegap is found at `/node_modules/phonegap/`
+&nbsp;
+    // first try to find the cordova binary for npm &lt; 3.x
+<span class="cstat-no" title="statement not covered" >    var binPath = path.resolve(path.join(__dirname, '..', '..', 'node_modules', '.bin'));</span>
+&nbsp;
+    // second try to find the cordova binary for npm &gt;= 3.x
+<span class="cstat-no" title="statement not covered" >    if (!fs.existsSync(path.join(binPath, 'cordova'))) {</span>
+<span class="cstat-no" title="statement not covered" >        binPath = path.resolve(path.join(__dirname, '..', '..', '..', '.bin'));</span>
+    }
+&nbsp;
+    // It's probably from Electron spawn
+<span class="cstat-no" title="statement not covered" >    if (!fs.existsSync(binPath)) {</span>
+<span class="cstat-no" title="statement not covered" >        binPath = path.resolve(path.join(__dirname, '..', '..', 'node_modules', 'cordova', 'bin'));</span>
+    }
+&nbsp;
+    // Another case where it could be run from an electron spawn
+<span class="cstat-no" title="statement not covered" >    if (!fs.existsSync(binPath)) {</span>
+<span class="cstat-no" title="statement not covered" >        binPath = path.resolve(path.join(__dirname, '..', '..', '..', 'cordova', 'bin'));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var command = options.cmd.split(' ')[0],           // 'cordova' process name (it may change one day)</span>
+        cordovaCommand = path.join(binPath, command), // /path/to/node_modules/.bin/cordova
+        execOptions = { async: true, silent: true },
+        buffer = [];
+&nbsp;
+    // support file paths that include a space character
+<span class="cstat-no" title="statement not covered" >    if (cordovaCommand.match(' ')) {</span>
+<span class="cstat-no" title="statement not covered" >        cordovaCommand = '"' + cordovaCommand + '"';</span>
+    }
+&nbsp;
+    // append the arguments and options onto the command
+<span class="cstat-no" title="statement not covered" >    cordovaCommand += ' ' + options.cmd.substring(command.length + 1);</span>
+&nbsp;
+    // output the command being excuted
+<span class="cstat-no" title="statement not covered" >    if (isCustomCommand(options)) {</span>
+<span class="cstat-no" title="statement not covered" >        var cleanCommand = options.cmd.replace("--no-telemetry","");</span>
+<span class="cstat-no" title="statement not covered" >        self.phonegap.emit('log', 'executing', '\'' + cleanCommand + '\' ...');</span>
+    }
+&nbsp;
+    // shell out the command to cordova
+<span class="cstat-no" title="statement not covered" >    var child = shell.exec(cordovaCommand, execOptions, <span class="fstat-no" title="function not covered" >function(code, output) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var e;</span>
+<span class="cstat-no" title="statement not covered" >        if (code !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >            e = new Error('PhoneGap received an error from the Cordova CLI:\n' +</span>
+                          '  Command: ' + cordovaCommand + '\n' +
+                          '  Exit code: ' + code);
+<span class="cstat-no" title="statement not covered" >            e.exitCode = code;</span>
+<span class="cstat-no" title="statement not covered" >            e.output = output;</span>
+&nbsp;
+            // send error info back to pg desktop app
+<span class="cstat-no" title="statement not covered" >            if (process.send)</span>
+<span class="cstat-no" title="statement not covered" >                process.send(e);</span>
+&nbsp;
+            // on an error, display the entire output log
+<span class="cstat-no" title="statement not covered" >            self.phonegap.emit('raw', buffer.join('\n'));</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            if (isCustomCommand(options)) {</span>
+<span class="cstat-no" title="statement not covered" >                self.phonegap.emit('log', 'completed',</span>
+                                          '\''+options.cmd+'\'');
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        callback(e);</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    child.stdout.on('data', <span class="fstat-no" title="function not covered" >function(data) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (options.verbose) {</span>
+<span class="cstat-no" title="statement not covered" >            self.phonegap.emit('raw', data.toString('utf8'));</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            buffer.push(data);</span>
+        }
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    child.stderr.on('data', <span class="fstat-no" title="function not covered" >function(data) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (options.verbose) {</span>
+<span class="cstat-no" title="statement not covered" >            self.phonegap.emit('raw', data.toString('utf8'));</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            buffer.push(data);</span>
+        }
+    });
+};
+&nbsp;
+/**
+ * Add Missing Platforms.
+ *
+ * There are a bunch of Cordova commands that require a platform to exist.
+ * Since the user is running the command, we can assume that they want the
+ * platform to be added to their application. So, why not just add it for them?
+ *
+ * Options:
+ *
+ *   - `options` {Object} is identical to the Cordova command input.
+ *   - [`callback`] {Function} is triggered after executing the command.
+ *     - `e` {Error} is null unless there is an error.
+ */
+&nbsp;
+CordovaCommand.prototype.addMissingPlatforms = <span class="fstat-no" title="function not covered" >function(options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    var self = this;</span>
+&nbsp;
+    // crazy regex to match any command that requires a platform and the
+    // list of platforms after the command. If the command is missing the
+    // platforms, then this regex will fail. That failure is a good thing
+    // because when the user doesn't list platforms, then we have nothing
+    // to add.
+<span class="cstat-no" title="statement not covered" >    var match = options.cmd.match(/(prepare|compile|build|run|emulate) ([\w ]+)/);</span>
+<span class="cstat-no" title="statement not covered" >    if (match) {</span>
+        // get a list of the platforms that need to be added to the project
+<span class="cstat-no" title="statement not covered" >        var cordovaAddCommand = 'cordova platform add --save ',</span>
+            projectRootPath = cordova.util.isCordova();
+&nbsp;
+        // project root will be false if it is not a cordova directory
+<span class="cstat-no" title="statement not covered" >        if (!projectRootPath) {</span>
+<span class="cstat-no" title="statement not covered" >            return callback(new Error('not a PhoneGap directory'));</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var requestedPlatforms = match[2].trim().split(' '),</span>
+            installedPlatforms = cordova.util.listPlatforms(projectRootPath),
+            missingPlatforms = diff(requestedPlatforms, installedPlatforms);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (missingPlatforms.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            cordovaAddCommand += missingPlatforms.join(' ');</span>
+<span class="cstat-no" title="statement not covered" >            self.phonegap.cordova({</span>
+                cmd: cordovaAddCommand,
+                verbose: options.verbose,
+                internalCommand: true
+            }, callback);
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    callback();</span>
+};
+&nbsp;
+/**
+ * Add phonegap.js.
+ *
+ * For backwards-compatibility, we will continue to support phonegap.js
+ * includes in the HTML file. Soon this will be deprecated.
+ *
+ * Options:
+ *
+ *   - `options` {Object} is identical to the Cordova command input.
+ *   - [`callback`] {Function} is triggered after executing the command.
+ *     - `e` {Error} is null unless there is an error.
+ */
+&nbsp;
+CordovaCommand.prototype.addPhoneGapJS = <span class="fstat-no" title="function not covered" >function(options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var match = options.cmd.match(/(prepare|compile|build|run|emulate)[ ]*([\w ]*)/);</span>
+<span class="cstat-no" title="statement not covered" >    if (match) {</span>
+        // get a list of the platforms that need to be added to the project
+<span class="cstat-no" title="statement not covered" >        var projectRootPath = cordova.util.isCordova(),</span>
+            requestedPlatforms = match[2].trim().split(' ');
+&nbsp;
+        // project root will be false if it is not a cordova directory
+<span class="cstat-no" title="statement not covered" >        if (!projectRootPath) {</span>
+<span class="cstat-no" title="statement not covered" >            return callback(new Error('not a PhoneGap directory'));</span>
+        }
+&nbsp;
+        // if no platforms were provided, then use all of the platforms
+        // the regex will often match an empty string if there is trailing
+        // whitespace, which is why there is the second comparison
+<span class="cstat-no" title="statement not covered" >        if (requestedPlatforms.length &lt;= 0 || requestedPlatforms[0] === '') {</span>
+<span class="cstat-no" title="statement not covered" >            requestedPlatforms = cordova.util.listPlatforms(projectRootPath);</span>
+        }
+&nbsp;
+        // for each platform, inject phonegap.js
+<span class="cstat-no" title="statement not covered" >        requestedPlatforms.forEach(<span class="fstat-no" title="function not covered" >function(platform) {</span></span>
+<span class="cstat-no" title="statement not covered" >            var platformPath = path.join(projectRootPath, 'platforms', platform, 'platform_www'),</span>
+                cordovaJSPath = path.join(platformPath, 'cordova.js'),
+                phonegapJSPath = path.join(platformPath, 'phonegap.js');
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (fs.existsSync(cordovaJSPath)) {</span>
+<span class="cstat-no" title="statement not covered" >                self.phonegap.emit('log', 'adding phonegap.js to the ' + platform + ' platform');</span>
+<span class="cstat-no" title="statement not covered" >                shell.cp('-f', cordovaJSPath, phonegapJSPath);</span>
+            }
+        });
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    callback();</span>
+};
+&nbsp;
+/**
+ * Add phonegap.js DEPRECATION warning.
+ *
+ * Display DEPRECATION warning when the app references phonegap.js
+ *
+ * Options:
+ *
+ *   - `options` {Object} is identical to the Cordova command input.
+ *   - [`callback`] {Function} is triggered after executing the command.
+ *     - `e` {Error} is null unless there is an error.
+ */
+&nbsp;
+CordovaCommand.prototype.addPhoneGapJSWarning = <span class="fstat-no" title="function not covered" >function(options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var match = options.cmd.match(/(prepare|compile|build|run|emulate)/);</span>
+<span class="cstat-no" title="statement not covered" >    if (match) {</span>
+        // search HTML files for phonegap.js references
+<span class="cstat-no" title="statement not covered" >        var projectRootPath = cordova.util.isCordova();</span>
+&nbsp;
+        // project root will be false if it is not a cordova directory
+<span class="cstat-no" title="statement not covered" >        if (!projectRootPath) {</span>
+<span class="cstat-no" title="statement not covered" >            return callback(new Error('not a PhoneGap directory'));</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var htmlGlob = path.join(projectRootPath, 'www', '*.html'),</span>
+            matchedFiles = shell.grep('phonegap.js', htmlGlob).trim();
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (matchedFiles.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            self.phonegap.emit('warn', 'phonegap.js support will soon be removed.');</span>
+<span class="cstat-no" title="statement not covered" >            self.phonegap.emit('warn', 'please replace \'phonegap.js\' references with \'cordova.js\'');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            self.addPhoneGapJS(options, callback);</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            callback();</span>
+        }
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >        callback();</span>
+    }
+};
+&nbsp;
+/*!
+ * Return elements that are different between both arrays.
+ *
+ * If used elsewhere, we should consider extending the Array with:
+ *     Array.prototype.diff = function(array2) { ... );
+ */
+&nbsp;
+<span class="fstat-no" title="function not covered" >function diff(array1, array2) {</span>
+<span class="cstat-no" title="statement not covered" >    return array1.filter(<span class="fstat-no" title="function not covered" >function(i) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return array2.indexOf(i) &lt; 0;</span>
+    });
+}
+&nbsp;
+/*!
+ * Custom Command Check
+ *
+ * Some Cordova commands, we intercept and provide additional functionality.
+ * This method abstracts the checking of those commands.
+ *
+ * Options:
+ *
+ *   - `options` {Object} same and provided to the CordovaCommand instance.
+ *
+ * Returns:
+ *
+ *   {Boolean}
+ */
+&nbsp;
+<span class="fstat-no" title="function not covered" >function isCustomCommand(options) {</span>
+    // default options.verbose
+<span class="cstat-no" title="statement not covered" >    return (options.internalCommand ||</span>
+            options.cmd.match(/(prepare|compile|build|run|emulate)/));
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 14:51:57 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
