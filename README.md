@@ -1,7 +1,7 @@
 # test coverage for  [phonegap (v6.4.8)](http://github.com/phonegap/phonegap-cli)  [![npm package](https://img.shields.io/npm/v/npmtest-phonegap.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-phonegap) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-phonegap.svg)](https://travis-ci.org/npmtest/node-npmtest-phonegap)
 #### PhoneGap command-line interface and node.js library.
 
-[![NPM](https://nodei.co/npm/phonegap.png?downloads=true)](https://www.npmjs.com/package/phonegap)
+[![NPM](https://nodei.co/npm/phonegap.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/phonegap)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-phonegap/tree/alpha)|
 |--:|:--|
@@ -9,11 +9,17 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-phonegap/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-phonegap/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-phonegap/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-phonegap/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-phonegap/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-phonegap/build/coverage.html/index.html)
+- [https://npmtest.github.io/node-npmtest-phonegap/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-phonegap/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-phonegap/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-phonegap%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-phonegap/build/test-report.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-phonegap/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-phonegap/build/coverage.html/index.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-phonegap/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-phonegap%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-phonegap/build/apidoc.html)
+- [https://npmtest.github.io/node-npmtest-phonegap/build/test-report.html](https://npmtest.github.io/node-npmtest-phonegap/build/test-report.html)
+
+[![test-report](https://npmtest.github.io/node-npmtest-phonegap/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-phonegap/build/test-report.html)
+
+- [https://npmdoc.github.io/node-npmdoc-phonegap/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-phonegap/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-phonegap/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-phonegap/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-phonegap/build/screenCapture.npmPackageListing.svg)
 
@@ -85,12 +91,10 @@
     "contributors": [
         {
             "name": "Michael Brooks",
-            "email": "michael@michaelbrooks.ca",
             "url": "http://michaelbrooks.ca/"
         },
         {
             "name": "Lorin Beer",
-            "email": "lorin.beer@gmail.com",
             "url": "http://www.ensufire.com/"
         },
         {
@@ -98,20 +102,16 @@
             "url": "http://risingj.com"
         },
         {
-            "name": "Ryan Stewart",
-            "email": "ryan@adobe.com"
+            "name": "Ryan Stewart"
         },
         {
-            "name": "Herm Wong",
-            "email": "herm.wong@gmail.com"
+            "name": "Herm Wong"
         },
         {
-            "name": "Suraj Pindoria",
-            "email": "suraj.pindoria@yahoo.com"
+            "name": "Suraj Pindoria"
         },
         {
-            "name": "Tommy-Carlos Williams",
-            "email": "tommy@devgeeks.org"
+            "name": "Tommy-Carlos Williams"
         }
     ],
     "templates": {
@@ -162,40 +162,31 @@
     },
     "maintainers": [
         {
-            "name": "devgeeks",
-            "email": "tommy@devgeeks.org"
+            "name": "devgeeks"
         },
         {
-            "name": "filmaj",
-            "email": "maj.fil@gmail.com"
+            "name": "filmaj"
         },
         {
-            "name": "hermwong",
-            "email": "herm.wong@gmail.com"
+            "name": "hermwong"
         },
         {
-            "name": "macdonst",
-            "email": "simon.macdonald@gmail.com"
+            "name": "macdonst"
         },
         {
-            "name": "mwbrooks",
-            "email": "michael@michaelbrooks.ca"
+            "name": "mwbrooks"
         },
         {
-            "name": "stevegill",
-            "email": "stevengill97@gmail.com"
+            "name": "stevegill"
         },
         {
-            "name": "surajpindoria",
-            "email": "suraj.pindoria@yahoo.com"
+            "name": "surajpindoria"
         },
         {
-            "name": "timkim",
-            "email": "timk@adobe.com"
+            "name": "timkim"
         }
     ],
-    "directories": {},
-    "readme": "ERROR: No README data found!"
+    "directories": {}
 }
 ```
 
