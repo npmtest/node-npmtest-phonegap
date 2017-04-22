@@ -1,4 +1,7 @@
-# test coverage for  [phonegap (v6.4.8)](http://github.com/phonegap/phonegap-cli)  [![npm package](https://img.shields.io/npm/v/npmtest-phonegap.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-phonegap) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-phonegap.svg)](https://travis-ci.org/npmtest/node-npmtest-phonegap)
+# npmtest-phonegap
+
+#### basic test coverage for  [phonegap (v6.5.0)](http://github.com/phonegap/phonegap-cli)  [![npm package](https://img.shields.io/npm/v/npmtest-phonegap.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-phonegap) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-phonegap.svg)](https://travis-ci.org/npmtest/node-npmtest-phonegap)
+
 #### PhoneGap command-line interface and node.js library.
 
 [![NPM](https://nodei.co/npm/phonegap.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/phonegap)
@@ -34,7 +37,7 @@
 {
     "name": "phonegap",
     "description": "PhoneGap command-line interface and node.js library.",
-    "version": "6.4.8",
+    "version": "6.5.0",
     "license": "Apache-2.0",
     "homepage": "http://github.com/phonegap/phonegap-cli",
     "repository": {
@@ -65,7 +68,7 @@
         "archiver": "^1.0.0",
         "colors": "0.6.0-1",
         "connect-phonegap": "0.24.5",
-        "cordova": "6.4.0",
+        "cordova": "6.5.0",
         "insight": "0.8.2",
         "configstore": "1.4.0",
         "os-name": "2.0.1",
@@ -152,13 +155,13 @@
             "npm": "phonegap-app-augmented-reality"
         }
     },
-    "gitHead": "8786fb473ad88ae8d98c30036537b8e230ae84cd",
+    "gitHead": "26e04aca43a9b2ebccc80d4591afd4d7509dd810",
     "bugs": {
         "url": "https://github.com/phonegap/phonegap-cli/issues"
     },
     "dist": {
-        "shasum": "46cb4bfe315b326695d096c0c779cafc63edb03b",
-        "tarball": "https://registry.npmjs.org/phonegap/-/phonegap-6.4.8.tgz"
+        "shasum": "8a101db223f7c13f80bd0d30873674b39f2f7a0c",
+        "tarball": "https://registry.npmjs.org/phonegap/-/phonegap-6.5.0.tgz"
     },
     "maintainers": [
         {
