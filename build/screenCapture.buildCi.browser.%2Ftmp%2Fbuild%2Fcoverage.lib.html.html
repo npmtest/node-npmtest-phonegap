@@ -1,5 +1,5 @@
 <html lang="en"><head>
-    <title>Code coverage report for node-npmtest-phonegap/node_modules/phonegap/spec/main.spec.js</title>
+    <title>Code coverage report for node-npmtest-phonegap/node_modules/phonegap/bin/phonegap.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,23 +192,23 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-phonegap">npmtest-phonegap (v0.0.2)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-phonegap/node_modules/phonegap/spec/main.spec.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-phonegap/node_modules/phonegap/bin/phonegap.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">50% <small>(2 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">53.85% <small>(7 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">30% <small>(3 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Functions: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">50% <small>(2 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">53.85% <small>(7 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-phonegap/node_modules/phonegap/spec/</a> » main.spec.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-phonegap/node_modules/phonegap/bin/</a> » phonegap.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -229,45 +229,105 @@
 15
 16
 17
-18</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*!
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//#!/usr/bin/env node
+&nbsp;
+/*!
  * Module dependencies.
  */
 &nbsp;
-var PhoneGap = require('../lib/phonegap'),
-    phonegap = require('../lib/main');
+var CLI = require('../lib/cli');
+var cli = new CLI();
+var analytics = cli.analytics;
+&nbsp;
+<span class="missing-if-branch" title="else path not taken">E</span>if (analytics.statusUnknown()) {
+    // if it is an analytics command, just run it
+    <span class="missing-if-branch" title="if path not taken">I</span>if (process.argv.length &gt; 2 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered">process.argv[2] === 'analytics')</span> {
+<span class="cstat-no" title="statement not covered">        runPhoneGapCommand();</span>
+    }
+    else {
+        // otherwise prompt and then run it
+        analytics.prompt(runPhoneGapCommand);
+    }
+}
+else {
+<span class="cstat-no" title="statement not covered">    runPhoneGapCommand();</span>
+}
 &nbsp;
 /*!
- * Specification: phonegap.
+ * Run the command-line client.
  */
-&nbsp;
-describe('main', <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">    it('should be an instance of PhoneGap', <span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">        expect(phonegap).toEqual(jasmine.any(PhoneGap));</span>
+<span class="fstat-no" title="function not covered">function runPhoneGapCommand() {</span>
+    // pass it into normal flow
+<span class="cstat-no" title="statement not covered">    cli.argv(process.argv, <span class="fstat-no" title="function not covered">function(e) {</span></span>
+<span class="cstat-no" title="statement not covered">        var args = Array.prototype.slice.call(process.argv);</span>
+        // analytics module will skip if it is not enabled
+<span class="cstat-no" title="statement not covered">        analytics.trackEvent(args.slice(2), e); </span>// slice off the first two, as that contains node [0] and phonegap.js [1]
+<span class="cstat-no" title="statement not covered">        process.exitCode = e ? e.exitCode || 1 : 0;</span>
     });
-});
+}
 &nbsp;
 &nbsp;</pre></td></tr>
 </tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 21:33:44 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 22 2017 09:38:13 GMT+0000 (UTC)</div>
 </div>
 
 
